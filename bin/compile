@@ -69,6 +69,8 @@ mv $build_dir/phantomjs-$phantomjs_version-linux-$phantomjs_type $build_dir/vend
 chmod +x $build_dir/vendor/phantomjs/bin/*
 PATH=$build_dir/vendor/phantomjs/bin:$PATH
 
+status "Downloaded and Installed PhantomJS!!!!!!!!!!"
+
 # Run subsequent node/npm commands from the build path
 cd $build_dir
 
@@ -190,7 +192,7 @@ fi
 # Update the PATH
 status "Building runtime environment"
 mkdir -p $build_dir/.profile.d
-echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\";" > $build_dir/.profile.d/nodejs.sh
+echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/vendor/phantomjs/bin:\$HOME/node_modules/.bin:\$PATH\";" > $build_dir/.profile.d/nodejs.sh
 
 # Post package.json to nomnom service
 # Use a subshell so failures won't break the build.
