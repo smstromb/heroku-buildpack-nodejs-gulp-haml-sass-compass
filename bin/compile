@@ -55,7 +55,7 @@ PATH=$build_dir/vendor/node/bin:$PATH
 status "NPM Version: $(npm -v)"
 
 # Phantomjs variables
-phantomjs_version="1.9.7"
+phantomjs_version="2.0.0"
 
 # Determine which type of phantomjs to download (x86_64 or i686)
 phantomjs_type=$(uname -m)
