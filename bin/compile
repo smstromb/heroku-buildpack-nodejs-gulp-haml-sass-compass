@@ -72,6 +72,7 @@ chmod +x $build_dir/vendor/phantomjs/bin/*
 PATH=$build_dir/vendor/phantomjs/bin:$PATH
 
 status "Downloaded and Installed PhantomJS!!!!!!!!!!"
+status "PhantomJS Version: $(phantomjs -v)"
 
 # Run subsequent node/npm commands from the build path
 cd $build_dir
