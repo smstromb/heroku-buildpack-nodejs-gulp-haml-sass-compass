@@ -55,26 +55,26 @@ PATH=$build_dir/vendor/node/bin:$PATH
 status "NPM Version: $(npm -v)"
 
 # Phantomjs variables
-# phantomjs_version="1.9.8"
+phantomjs_version="1.9.8"
 
-# # Determine which type of phantomjs to download (x86_64 or i686)
-# phantomjs_type=$(uname -m)
+# Determine which type of phantomjs to download (x86_64 or i686)
+phantomjs_type=$(uname -m)
 
-# # Download phantomjs
-# status "Downloading and installing phantomjs"
-# status "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$phantomjs_version-linux-$phantomjs_type.tar.bz2"
-# phantomjs_url="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$phantomjs_version-linux-$phantomjs_type.tar.bz2"
-# # phantomjs_url="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.0.0-source.zip"
-# # Ugly hack to get the mirror url
-# curl $phantomjs_url -L -s -o - | tar xjf - -C $build_dir
+# Download phantomjs
+status "Downloading and installing phantomjs"
+status "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$phantomjs_version-linux-$phantomjs_type.tar.bz2"
+phantomjs_url="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$phantomjs_version-linux-$phantomjs_type.tar.bz2"
+# phantomjs_url="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.0.0-source.zip"
+# Ugly hack to get the mirror url
+curl $phantomjs_url -L -s -o - | tar xjf - -C $build_dir
 
-# # Move phantomjs into ./vendor and make it executable
-# mv $build_dir/phantomjs-$phantomjs_version-linux-$phantomjs_type $build_dir/vendor/phantomjs
-# chmod +x $build_dir/vendor/phantomjs/bin/*
-# PATH=$build_dir/vendor/phantomjs/bin:$PATH
+# Move phantomjs into ./vendor and make it executable
+mv $build_dir/phantomjs-$phantomjs_version-linux-$phantomjs_type $build_dir/vendor/phantomjs
+chmod +x $build_dir/vendor/phantomjs/bin/*
+PATH=$build_dir/vendor/phantomjs/bin:$PATH
 
-# status "Downloaded and Installed PhantomJS!!!!!!!!!!"
-# status "PhantomJS Version: $(phantomjs -v)"
+status "Downloaded and Installed PhantomJS!!!!!!!!!!"
+status "PhantomJS Version: $(phantomjs -v)"
 
 # Run subsequent node/npm commands from the build path
 cd $build_dir
